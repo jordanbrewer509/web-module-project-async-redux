@@ -12,13 +12,14 @@ const Activity = (props) => {
 
     return (
         <>
-            <div>
-                <h2>Here's something you can do: {props.activity.name}.</h2>
+            <div className="Activity">
+                <h2>Here's something you can do: <br/>
+                {props.activity.name}{props.activity.name ? "." : ""}</h2>
                 <h3>This would be a {props.activity.type} event.</h3>
-                <h3>You would need {props.activity.participants} people.</h3>
-                <h4>Difficulty rating: {props.activity.accessibility}</h4>
+                <h3>You would need {props.activity.participants} {props.activity.participants === 1 ? "person" : 'people'}.</h3>
+                <h4>Difficulty rating: {props.activity.accessibility * 10} / 10</h4>
             </div>
-            <button onClick={() => props.getActivity()}>Get a New Activity</button>
+            <button className = "getButton" onClick={() => props.getActivity()}>Get a New Activity</button>
         </>
     );
 };
